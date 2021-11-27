@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'at.nipe'
+version '0.0.2-alpha'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":api")
+    implementation project(":general")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+task exportJarToBin(type: Copy, dependsOn: 'shadowJar') {
+    from shadowJar
+    into "../server/plugins"
+}
+
+test {
+    useJUnitPlatform()
+}

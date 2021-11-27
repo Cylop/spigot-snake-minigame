@@ -1,0 +1,5 @@
+rootProject.name = 'project-malibu-general'
+include 'general'
+include 'api'
+include 'snake-minigame'
+

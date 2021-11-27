@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'at.nipe.malibu'
+version '0.0.2-alpha'
+
+dependencies {
+    implementation project(":api")
+}
+
+task exportJarToBin(type: Copy, dependsOn: 'shadowJar') {
+    from shadowJar
+    into "../server/plugins"
+}
+
+task cleanServerAndexportJarToBin(type: Copy, dependsOn: 'shadowJar') {
+
+    doFirst {
+        delete fileTree("../server/plugins") {
+            include "**/*general*.jar"
+        }
+    }
+
+
+    from shadowJar
+    into "../server/plugins"
+}
+

@@ -1,0 +1,9 @@
+name: General
+main: at.malibu.general.PaperTesting
+version: 0.0.1-alpha
+author: Nicholas Petrasek
+
+api-version: 1.13
+# DO NOT EDIT. This will enable Nashorn library on servers using Java 15 or greater.
+libraries:
+  - org.openjdk.nashorn:nashorn-core:15.3
